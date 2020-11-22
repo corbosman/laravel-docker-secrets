@@ -3,7 +3,6 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 ![Build](https://github.com/corbosman/laravel-docker-secrets/workflows/build/badge.svg?branch=main)
-![license](https://img.shields.io/packagist/l/corbosman/laravel-docker-secrets)
 
 This package allows you to use docker swarm secrets in your Laravel config files. Note there are some limitations, see the usage below.
 
