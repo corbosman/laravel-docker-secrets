@@ -3,9 +3,9 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
+![license](https://img.shields.io/packagist/l/corbosman/laravel-docker-secrets)
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+This package allows you to use docker swarm secrets in your Laravel config files. Note there are some limitations, see the usage below.
 
 ## Installation
 
@@ -16,6 +16,37 @@ $ composer require corbosman/laravel-docker-secrets
 ```
 
 ## Usage
+
+This package provides two helper methods that you can use in your laravel config files. Due to the way Laravel parses the config files, you can only use them in the env() method. In practice this is almost always exactly what you want, as it allows you to override the secrets locally for development.  
+
+```php
+<?php
+    return [
+        'password' => env('PASSWORD', docker_secret('my-docker-secret'))
+    ];
+?>   
+```
+
+You can also store encrypted docker secrets. Not that the secret must be encrypted using your app's key. This is useful if you share your swarm with a team. Other projects can't just mount your secrets and view them. 
+
+```php
+<?php
+    return [
+        'password' => env('PASSWORD', docker_secret_encrypted('my-encrypted-docker-secret'))
+    ];
+?>   
+```
+
+Finally, you can also return a default value if the secret isn't available.
+
+```php
+<?php
+    return [
+        'password' => env('PASSWORD', docker_secret_encrypted('my-docker-secret', 'my-default'))
+    ];
+?>      
+```
+
 
 ## Change log
 
@@ -29,7 +60,7 @@ $ composer test
 
 ## Contributing
 
-Please see [contributing.md](contributing.md) for details and a todolist.
+Please see [contributing.md](contributing.md) for details.
 
 ## Security
 
@@ -37,12 +68,11 @@ If you discover any security related issues, please email author email instead o
 
 ## Credits
 
-- [author name][link-author]
-- [All Contributors][link-contributors]
+- [Cor Bosman][link-author]
 
 ## License
 
-license. Please see the [license file](license.md) for more information.
+Please see the [license file](license.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/corbosman/laravel-docker-secrets.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/corbosman/laravel-docker-secrets.svg?style=flat-square
@@ -54,4 +84,3 @@ license. Please see the [license file](license.md) for more information.
 [link-travis]: https://travis-ci.org/corbosman/laravel-docker-secrets
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/corbosman
-[link-contributors]: ../../contributors
