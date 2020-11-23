@@ -26,7 +26,7 @@ This package provides two helper methods that you can use in your laravel config
 ?>   
 ```
 
-You can also store encrypted docker secrets. Not that the secret must be encrypted using your app's key. This is useful if you share your swarm with a team. Other projects can't just mount your secrets and view them. 
+You can also store encrypted docker secrets. Note that the secret must be encrypted using your app's key. This is useful if you share your swarm with a team. Other projects can't just mount your secrets and view them. 
 
 ```php
 <?php
