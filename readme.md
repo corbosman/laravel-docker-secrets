@@ -51,7 +51,7 @@ Finally, you can also return a default value if the secret isn't available.
 This package offers a command to easily generate an encrypted secret which you can then store in Docker Swarm. It uses the project's app secret for encryption so make sure that this same key is also used in the service that uses the Swarm secret. You can also simply use Tinker to create encrypted secrets. 
 
 ```bash
-\$ artisan docker-secret:encrypt foobar
+$ artisan docker-secret:encrypt foobar
 eyJpdiI6ImY5dWdHeHJ2WkpZdUNTZFlVYUZpMFE9PSIsInZhbHVlIjoidmZPblk2eEIxNy8vdkl6OE5YSGF2dz09IiwibWFjIjoiZTdmYmVmNmQ5YzA5ZTI3YzI0NjFjOGJkOTY5ODhjNDkwMmMwYWVmMTkwYzcyNzMzN2ZlYWQ1NzlhNzlkM2RjZCJ9
 ```
 
